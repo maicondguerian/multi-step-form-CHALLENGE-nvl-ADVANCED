@@ -3,6 +3,12 @@ import { StyledLeftBar } from '../../GlobalStyles/GlobalStyles'
 import styled from 'styled-components'
 import { Form } from '../FormWrapper/Form'
 
+const StyledAlLForm = styled.div`
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+`
 const StyledStep = styled.div`
     display: flex;
     gap: 1rem;
@@ -27,7 +33,7 @@ const StyledStep = styled.div`
     
 `
 
-const Steps = ({step='', stepInfo, stepNumber, bgColor, border}) => {
+const Steps = ( {step='', stepInfo, stepNumber, bgColor, border} ) => {
     return (
         <StyledStep bgColor={bgColor} border={border}>
             <span>
@@ -40,18 +46,25 @@ const Steps = ({step='', stepInfo, stepNumber, bgColor, border}) => {
         </StyledStep>
     )
 }
-
+const LeftSide =() =>{
+    return (
+        <StyledLeftBar>
+            <Steps stepInfo={'your info'} stepNumber={'step1'} step='1' border={'none'}/>
+            <Steps bgColor='transparent' />
+            <Steps bgColor='transparent'/>
+            <Steps bgColor='transparent'/>
+        </StyledLeftBar>
+    )
+}
 export const StepsLeftBar = () => {
  
     return (
         <>
-            <StyledLeftBar>
-                <Steps stepInfo={'your info'} stepNumber={'step1'} step='1' border={'none'}/>
-                <Steps bgColor='transparent' />
-                <Steps bgColor='transparent'/>
-                <Steps bgColor='transparent'/>
-            </StyledLeftBar>
+        <LeftSide />
+        <StyledAlLForm>
             <Form />
+        </StyledAlLForm>
         </>
+       
   )
 }
